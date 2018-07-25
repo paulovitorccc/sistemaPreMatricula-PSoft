@@ -20,7 +20,7 @@ sysLogin.controller('loginController', ['$scope', function($scope) {
                     request.execute(function(resp){
                         $scope.$apply(function(){
                             $scope.gmail.username = resp.displayName;
-                             $scope.gmal.email = resp.emails[0].value;
+                             $scope.gmail.email = resp.emails[0].value;
                         });
                     });
                 }
@@ -31,5 +31,7 @@ sysLogin.controller('loginController', ['$scope', function($scope) {
          };
 
          gapi.auth.signIn(params);
+         
     }
+    
 }])

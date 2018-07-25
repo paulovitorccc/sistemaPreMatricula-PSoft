@@ -5,9 +5,6 @@
   padding: 8% 0 0;
   margin: auto;
 }
-.login-title{
-  font-family: "Roboto", sans-serif;
-}
 .form {
   position: relative;
   z-index: 1;
