@@ -11,33 +11,33 @@
   <link rel="stylesheet" href="css/login.css">
   <title>Document</title>
 </head>
-<body ng-app="sysLogin" ng-controller="loginController">
+<body ng-app="myApp" ng-controller="myController">
   <div class="section-content">
     <h1 class="section-header"> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Sistema de Pré Matrícula</span></h1>
 </div>
-<h4>{{gmail.email}}</h4>  
+
   <div class="login-page">
     <div class="form">
       <form class="login-form">
-          <input type="button" ng-click="onGoogleLogin()"  value="Login"/>
+        <input type="button" ng-click="onGoogleLogin()" value="Login"/>
           
           <p class="message">First Access? <a href="firstaccess.html">Create an account</a></p>
       </form>
     </div>
+<h4>{{gmail.username}}</h4>
+<h4>{{gmail.email}}</h4>
   </div>
-  <!--
-  <img ng-src = "{{g_image}}" style="width: 100px; height: 100px">
-  -->
-  <script type="text/javascript" src="login.js"></script>
+ 
+  <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript">
-    (function(){
-        var p = document.createElement('script');
-        p.type = 'text/javascript';
-        p.async = true;
-        p.src = 'https://apis.google.com/js/client.js?onload=onLoadFunction';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(p, s);
-    })();
+      (function() {
+          var p = document.createElement('script');
+          p.type = 'text/javascript';
+          p.async = true;
+          p.src = 'https://apis.google.com/js/client.js?onload=onLoadFunction';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(p, s);
+      })();
   </script>
 </body>
 </html>
