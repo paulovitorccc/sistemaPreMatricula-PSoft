@@ -20,15 +20,24 @@ myApp.controller('myController', ['$scope', function($scope) {
                         $scope.$apply(function() {
                             $scope.gmail.username = resp.displayName;
                              $scope.gmail.email = resp.emails[0].value;
+                             if(resp.emails[0].value === "pwanderley10@gmail.com"){
+                                 window.location.assign("firstaccess.html");
+                             }
                         });
                     });
+                    
                 }
-
+              
             },
             'approvalprompt': 'force',
             'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
         };
 
         gapi.auth.signIn(params);
+        
+       
     }
+   
+    
+   
 }]);
