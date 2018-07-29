@@ -1,0 +1,16 @@
+{
+  "name": "security-holder",
+  "description": "This is just a placeholder repository for removed bower component",
+  "license": "MIT",
+  "homepage": "https://github.com/bower/security-holder",
+  "_release": "9b023b87b7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9b023b87b76f132f60de4fe21e54494716ac3c36"
+  },
+  "_source": "https://github.com/bower/security-holder.git",
+  "_target": "*",
+  "_originalSource": "botstrap",
+  "_direct": true
+}
