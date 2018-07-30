@@ -21,11 +21,11 @@
   
   <div ng-repeat="disciplina in disciplinas track by $index">
     
-        <input id="remember" type="checkbox" class="disc" >{{disciplina}}<br>
+        <input id="remember" type="checkbox" class="disc" value="{{disciplina}}" >{{disciplina}}<br>
        
    </div>
-   <input class="btn" type="submit" value="Submit" onclick="validate();">
-   
+   <input class="btn" type="submit" value="Submit" onclick="validate();getValue();">
+   <a href="#" onclick="getValue();" return false> Get Value</a>
    
    <script type=text/javascript>
    function validate(){
@@ -36,6 +36,18 @@
    alert("Você tem que escolher pelo menos 1 disciplina")
    }
    }
+   </script>
+   <script>
+       function getValue() {
+       var checks = document.getElementsByClassName("disc");
+       var str = "";
+       for(i=0; i < 5; i++){
+           if (checks[i].checked === true) {
+               str += checks[i].value + " ";
+           }
+       }
+       alert(str);
+    }  
    </script>
 
 </body>
