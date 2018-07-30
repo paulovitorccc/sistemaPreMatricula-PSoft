@@ -3,6 +3,7 @@ var myApp = angular.module("myApp", []);
 myApp.controller('alunoController', ['$scope', '$http', function($scope, $http) {
   
     $scope.disciplinas = []; 
+    $scope.sendPreMatricula = [];
 
     $scope.getRequest = function(){
         $http.get("http://analytics.ufcg.edu.br/pre/ciencia_da_computacao_i_cg/disciplinas")
@@ -16,6 +17,18 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http) 
             };
         });
     }
+    /*
+    $scope.postRequest = function() {
+        $http({
+            url: '...',
+            method: "POST",
+            data: { 'user' : $scope.sendPreMatricula }
+        })
+        .then(function(response) {
+                
+        });
+    }
+   */
 
 
    
