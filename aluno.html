@@ -19,24 +19,24 @@
   </div>
   
   
-<div ng-repeat="disciplina in disciplinas track by $index">
+  <div ng-repeat="disciplina in disciplinas track by $index">
     
-     <input id="remember" type="checkbox" class="disc" >{{disciplina}}<br>
-    
-</div>
-<input class="btn" type="submit" value="Submit" onclick="validate();">
-
-
-<script type=text/javascript>
-function validate(){
-var remember = document.getElementById('remember');
-if (remember.checked){
-alert("OK") ;
-}else{
-alert("Você tem que escolher pelo menos 1 disciplina")
-}
-}
-</script>
+        <input id="remember" type="checkbox" class="disc" >{{disciplina}}<br>
+       
+   </div>
+   <input class="btn" type="submit" value="Submit" onclick="validate();">
+   
+   
+   <script type=text/javascript>
+   function validate(){
+   var remember = document.getElementById('remember');
+   if (remember.checked){
+   alert("OK") ;
+   }else{
+   alert("Você tem que escolher pelo menos 1 disciplina")
+   }
+   }
+   </script>
 
 </body>
 </html>
