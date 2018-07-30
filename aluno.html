@@ -17,8 +17,15 @@
   <div>
     <input type="button" ng-click="getRequest()" value="get"/>
   </div>
+  
 <div ng-repeat="disciplina in disciplinas track by $index">
-<span ng-style="{'color':($first ?'blue':'blue')}">{{disciplina}}</span>
+    
+     <input id="remember" type="checkbox" onclick="validate()">{{disciplina}}<br>
+    
 </div>
+<input class="btn" type="submit" value="Submit">
+
+    </script>
+
 </body>
 </html>
