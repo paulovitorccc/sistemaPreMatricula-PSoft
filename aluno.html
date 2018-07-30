@@ -13,19 +13,30 @@
 <body id="body" ng-app="myApp" ng-controller="alunoController">
   <div class="section-content">
     <h1 class="section-header"> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Sistema de Pré Matrícula</span></h1>
-
-  <div>
-    <input type="button" ng-click="getRequest()" value="get"/>
   </div>
+  <div>
+    <input type="button" ng-click="getRequest()" value="Realizar Matrícula"/>
+  </div>
+  
   
 <div ng-repeat="disciplina in disciplinas track by $index">
     
-     <input id="remember" type="checkbox" onclick="validate()">{{disciplina}}<br>
+     <input id="remember" type="checkbox" class="disc" >{{disciplina}}<br>
     
 </div>
-<input class="btn" type="submit" value="Submit">
+<input class="btn" type="submit" value="Submit" onclick="validate();">
 
-    </script>
+
+<script type=text/javascript>
+function validate(){
+var remember = document.getElementById('remember');
+if (remember.checked){
+alert("OK") ;
+}else{
+alert("Você tem que escolher pelo menos 1 disciplina")
+}
+}
+</script>
 
 </body>
 </html>
