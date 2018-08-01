@@ -31,19 +31,19 @@
                         <div class="col-md-6 form-line">
                               <div class="form-group">
                                   <label for="nome">Disciplina</label>
-                                <input type="text" class="form-control" id="nome" placeholder=" Digite o Nome da Disciplina">
+                                <input type="text" class="form-control" ng-model="nome" placeholder=" Digite o Nome da Disciplina">
                               </div>
                               <div class="form-group">
                                 <label for="codigo">Código</label>
-                                <input type="codigo" class="form-control" id="codigo" placeholder=" Código da Disciplina">
+                                <input type="codigo" class="form-control" ng-model="codigo" placeholder=" Código da Disciplina">
                               </div>	
                               <div class="form-group">
-                                <label for="creditos">Matrícula</label>
-                                <input type="creditos" class="form-control" id="creditos" placeholder=" Digite a quantidade de Créditos">
+                                <label for="creditos">Créditos</label>
+                                <input type="creditos" class="form-control" ng-model="creditos" placeholder=" Digite a quantidade de Créditos">
                               </div>
                               <div class="form-group">
                                 <label for="period">Carga Horária</label>
-                                <input type="carga" class="form-control" id="carga" placeholder=" Digite a carga horária da disciplina">
+                                <input type="carga" class="form-control" ng-model="carga" placeholder=" Digite a carga horária da disciplina">
                               </div>
                             
 
@@ -51,7 +51,7 @@
                           <div class="col-md-6">
                               <div>
                                
-                                    <input type="button" ng-click="cadastrarDisciplina();" value="Cadastrar"/>
+                                    <input type="button" ng-click="enviarMsg();" value="Cadastrar"/>
                             </div>
                               
                         </div>
