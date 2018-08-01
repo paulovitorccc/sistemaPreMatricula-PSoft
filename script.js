@@ -14,7 +14,7 @@ myApp.controller('myController', ['$scope', '$http', function($scope, $http, Sco
 
     $scope.verifyFirstAcess = function(email) {
         var bool = false;
-        var getPath = "http://192.168.1.190:8080/prematricula/alunos"
+        var getPath = "http://localhost:8080/prematricula/alunos"
         $http.get(getPath)
             .then(function (response) {
                 for (let index = 0; index < response.data.length; index++) {
