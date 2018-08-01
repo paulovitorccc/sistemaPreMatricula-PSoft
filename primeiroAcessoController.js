@@ -8,7 +8,7 @@ myApp.controller('accessController', ['$scope', '$http', function($scope, $http)
         obj.periodo = $scope.period;
 
         $http({
-            url: 'http://localhost:8080/prematricula/alunos',
+            url: 'http://192.168.1.190:8080/prematricula/alunos',
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             data: { "matricula": obj.matricula,

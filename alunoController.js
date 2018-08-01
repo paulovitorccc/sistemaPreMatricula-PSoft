@@ -24,7 +24,7 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http, 
         obj.disciplinas = array;
 
         $http({
-            url: 'http://localhost:8080/prematricula/alunos/' + obj.matricula,
+            url: 'http://192.168.1.190:8080/prematricula/alunos/' + obj.matricula,
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             data: { 

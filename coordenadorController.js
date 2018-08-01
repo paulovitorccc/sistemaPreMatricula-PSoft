@@ -24,7 +24,7 @@ myApp.controller('cooController', ['$scope', '$http', function($scope, $http) {
         obj.carga = $scope.carga;
 
         $http({
-            url: 'http://localhost:8080/prematricula/disciplinas',
+            url: 'http://192.168.1.190:8080/prematricula/disciplinas',
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             data: [{ "codigo_disciplina": obj.codigo,
