@@ -6,7 +6,7 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http) 
     $scope.sendPreMatricula = [];
 
     $scope.getRequest = function(){
-        $http.get("http://analytics.ufcg.edu.br/pre/ciencia_da_computacao_i_cg/disciplinas")
+        $http.get("http://localhost:8080/prematricula/disciplinas")
         .then(function(response){
             $scope.disciplinas = response.data;
             for (let index = 0; index < response.data.length; index++) {
