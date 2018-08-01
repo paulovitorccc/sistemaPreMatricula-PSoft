@@ -2,34 +2,42 @@ var myApp = angular.module("myApp", []);
 
 myApp.controller('cooController', ['$scope', '$http', function($scope, $http) {
     
-
+/*
     $scope.cadastrarDisciplina = function(){
-        var nome = document.getElementById("nome").value;
-        var codigo = document.getElementById("codigo").value;
-        var creditos = document.getElementById("creditos").value;
-        var carga = document.getElementById("carga").value;
         var obj = {};
-        obj.semestre = null;
-        obj.pos_requisitos = [];
-        obj.nome = nome;
-        obj.creditos = creditos;
-        obj.tipo = "";
-        obj.pre_requisitos = [];
-        obj.codigo_departamento = null;
-        obj.codigo = codigo;
-        obj.carga = carga;
+        obj.semestre = "1";
+        obj.pos_requisitos = null;
+        obj.nome = $scope.nome;
+        obj.creditos = $scope.creditos;
+        obj.tipo = "Complementar";
+        obj.pre_requisitos = null;
+        obj.codigo_departamento = '14110000.0';
+        obj.codigo = $scope.codigo;
+        obj.carga = $scope.carga;
         $scope.enviarMsg([obj]);
-      }
-      $scope.enviarMsg = function(info){
+    }*/
+      $scope.enviarMsg = function(obj){
+        var obj = {};
+        obj.nome = $scope.nome;
+        obj.creditos = $scope.creditos;
+        obj.codigo = $scope.codigo;
+        obj.carga = $scope.carga;
+
         $http({
             url: 'http://localhost:8080/prematricula/disciplinas',
             method: "POST",
-            data: {semestre:info.semestre , pos_requisitos: info.pos_requisitos,
-                 disciplina: info.nome, 
-            creditos: info.creditos, tipo: info.tipo, pre_requisitos: info.pre_requisitos,
-             codigo_departamento: info.codigo_departamento,
-              codigo_disciplina: info.codigo,
-               horas: info.carga}
+            headers: {'Content-Type': 'application/json'},
+            data: [{ "codigo_disciplina": obj.codigo,
+            "disciplina": obj.nome,
+            "semestre": "",
+            "pos_Requisitos": null,
+            "creditos": obj.creditos,
+            "tipo": "",
+            "pre_Requisitos": null,
+            "codigo_departamento": 14110000.0,
+            "horas": obj.carga
+                }]
+               
            
         })
         .then(function(response) {
@@ -40,6 +48,37 @@ myApp.controller('cooController', ['$scope', '$http', function($scope, $http) {
         });
       
       }
+      /*
+      $scope.register = function (user) {
+        var data = {
+            "user" : {
+                "name": user.name,
+                "email": user.email,
+                "phone": "+91"+ user.phone,
+                "password": user.password,
+                "address": user.address
+    
+            }
+    
+        };
+        $http({
+            method: 'POST',
+            url: '',
+            headers: {'Content-Type': 'application/json'},
+            data: data
+        }).then(function successCallback(response) {
+            if (response.data) {
+                sharedServices.set(response.data);
+                $location.path('/login');
+            }
+            console.log(response);
+        }, function errorCallback(response) {
+            if (response) {
+                $scope.message = response.data;
+            }
+        });
+    };
+      */
   
         
 }]);

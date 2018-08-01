@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="coordenadorController.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
@@ -31,19 +31,19 @@
                         <div class="col-md-6 form-line">
                               <div class="form-group">
                                   <label for="nome">Disciplina</label>
-                                <input type="text" class="form-control" id="nome" placeholder=" Digite o Nome da Disciplina">
+                                <input type="text" class="form-control" ng-model="nome" placeholder=" Digite o Nome da Disciplina">
                               </div>
                               <div class="form-group">
                                 <label for="codigo">Código</label>
-                                <input type="codigo" class="form-control" id="codigo" placeholder=" Código da Disciplina">
+                                <input type="codigo" class="form-control" ng-model="codigo" placeholder=" Código da Disciplina">
                               </div>	
                               <div class="form-group">
-                                <label for="creditos">Matrícula</label>
-                                <input type="creditos" class="form-control" id="creditos" placeholder=" Digite a quantidade de Créditos">
+                                <label for="creditos">Créditos</label>
+                                <input type="creditos" class="form-control" ng-model="creditos" placeholder=" Digite a quantidade de Créditos">
                               </div>
                               <div class="form-group">
                                 <label for="period">Carga Horária</label>
-                                <input type="carga" class="form-control" id="carga" placeholder=" Digite a carga horária da disciplina">
+                                <input type="carga" class="form-control" ng-model="carga" placeholder=" Digite a carga horária da disciplina">
                               </div>
                             
 
@@ -51,7 +51,7 @@
                           <div class="col-md-6">
                               <div>
                                
-                                    <input type="button" ng-click="cadastrarDisciplina();" value="Cadastrar"/>
+                                    <input type="button" ng-click="enviarMsg();" value="Cadastrar"/>
                             </div>
                               
                         </div>
