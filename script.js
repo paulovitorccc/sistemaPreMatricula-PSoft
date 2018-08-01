@@ -11,8 +11,9 @@ myApp.controller('myController', ['$scope', function($scope) {
         return regExp.test(email);
     }
 
-    $scope.verifyAcess = function() {
+    $scope.verifyAcess = async function() {
         if($scope.verifyEmailCCC($scope.gmail.email)) {
+
             window.location.assign("firstaccess.html");
         } else {
             window.alert("Você deve utilizar uma email do curso de Ciências da Computação para logar!")
