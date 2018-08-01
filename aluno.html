@@ -21,7 +21,7 @@
   
   <div ng-repeat="disciplina in disciplinas track by $index">
     
-        <input id="remember" type="checkbox" class="disc" value="{{disciplina}}" >{{disciplina}}<br>
+        <input id="remember" type="checkbox" class="disc" value="{{disciplina.disciplina}}" >{{disciplina.semestre}}  {{disciplina.disciplina}}  {{disciplina.tipo}} <br>
        
    </div>
    <input class="btn" type="submit" value="Submit" onclick="validate();getValue();">
@@ -41,13 +41,13 @@
    <script>
        function getValue() {
        var checks = document.getElementsByClassName("disc");
-       var str = "";
+       var disciplinas = [];
        for(i=0; i < 5; i++){
            if (checks[i].checked === true) {
-               str += checks[i].value + " ";
+                disciplinas[i] = checks[i].value;
            }
        }
-       alert(str);
+       alert(disciplinas);
     }  
    </script>
 

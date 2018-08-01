@@ -11,12 +11,24 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http) 
             $scope.disciplinas = response.data;
             for (let index = 0; index < response.data.length; index++) {
                 const element = response.data[index];
-                    $scope.disciplinas[index] = element.semestre + " " + element.disciplina + " " + element.tipo + " " + element.creditos;
+                    $scope.disciplinas[index] = element;
                 
                 
             };
+            /*
+            $scope.imprimeDisc();
+            */
         });
     }
+    /*
+    $scope.imprimeDisc = function(){
+        for (let index = 0; index < $scope.disciplinas.length; index++) {
+            const element = $scope.disciplinas[index];
+            $scope.disciplinaFormat[index] = element.semestre + " " + element.disciplina + " " + element.tipo + " " + element.creditos;
+        }
+
+    }
+    */
     /*
     $scope.postRequest = function() {
         $http({
