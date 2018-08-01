@@ -1,25 +1,37 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller('myController', ['$scope', function($scope) {
+myApp.controller('myController', ['$scope', '$http', function($scope, $http, Scope) {
     $scope.gmail = {
         username: "",
         email: ""
     };
+    $scope.aluno = {}
 
     $scope.verifyEmailCCC = function(email) {
         const regExp = /@ccc.ufcg.edu.br/;
         return regExp.test(email);
-    }
-
-    $scope.verifyAcess = async function() {
-        if($scope.verifyEmailCCC($scope.gmail.email)) {
-
-            window.location.assign("firstaccess.html");
-        } else {
-            window.alert("Você deve utilizar uma email do curso de Ciências da Computação para logar!")
-        }
     };
 
+    $scope.verifyFirstAcess = function(email) {
+        var bool = false;
+        var getPath = "http://192.168.1.190:8080/prematricula/alunos"
+        $http.get(getPath)
+            .then(function (response) {
+                for (let index = 0; index < response.data.length; index++) {
+                    const element = response.data[index];
+                    if (element.email === email) {
+                        bool = true;
+                    }
+                    
+                }
+                if (bool) {
+                    window.location.assign("aluno.html");
+                }
+                else{
+                    window.location.assign("firstaccess.html");
+                }
+            });
+    };
 
     $scope.onGoogleLogin = function() {
         console.log('inicio do google api');
@@ -37,7 +49,12 @@ myApp.controller('myController', ['$scope', function($scope) {
                         $scope.$apply(function() {
                             $scope.gmail.username = resp.displayName;
                             $scope.gmail.email = resp.emails[0].value;
-                            $scope.verifyAcess();
+                            if (resp.emails[0].value === "pedro.wanderley@ccc.ufcg.edu.br") {
+                                window.location.assign("coordenador.html");
+                            }else{
+                                $scope.verifyFirstAcess(resp.emails[0].value);
+                            }
+                            
                         });
                     });
                 }

@@ -2,18 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="primeiroAcessoController.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/firstaccess.css">
+    <link rel="stylesheet" href="firstaccess.css">
+    <title>Primeiro Acesso</title>
+   
 </head>
-<body id="contact">  
+<body id="contact" ng-app="myApp" ng-controller="accessController">  
    
       
     <section >
@@ -26,25 +30,21 @@
                     <form>
                         <div class="col-md-6 form-line">
                               <div class="form-group">
-                                  <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" placeholder=" Digite o Nome">
+                                  <label for="matricula">Matrícula</label>
+                                <input type="text" class="form-control" ng-model="matricula" placeholder=" Digite sua Matrícula">
                               </div>
                               <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder=" Nome do Email">
+                                <input type="email" class="form-control" ng-model="email" placeholder=" Nome do Email">
                               </div>	
                               <div class="form-group">
-                                <label for="matr">Matrícula</label>
-                                <input type="matr" class="form-control" id="matr" placeholder=" Digite sua matrícula">
-                              </div>
-                              <div class="form-group">
                                 <label for="period">Período Ingresso</label>
-                                <input type="period" class="form-control" id="period" placeholder=" Digite seu período de ingresso">
+                                <input type="period" class="form-control" ng-model="period" placeholder=" Digite seu período de ingresso">
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div>
-                                <button type="button" onclick="window.location.href='login.html';cadastrar();" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar</button>
+                                <button type="button" ng-click="cadastrar();" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Cadastrar</button>
                             </div>
                               
                         </div>
