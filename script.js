@@ -1,6 +1,6 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller('myController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('myController', ['$scope', '$http', function($scope, $http, Scope) {
     $scope.gmail = {
         username: "",
         email: ""
@@ -13,33 +13,25 @@ myApp.controller('myController', ['$scope', '$http', function($scope, $http) {
     };
 
     $scope.verifyFirstAcess = function(email) {
-        var fullUsername = email.split("@");
-        var brokenUsername = fullUsername[0].split(".");
-        var getPath = "http://localhost:8080/prematricula/alunos/" +
-            brokenUsername[0] + "@" + brokenUsername[1];
+        var bool = false;
+        var getPath = "http://localhost:8080/prematricula/alunos"
         $http.get(getPath)
             .then(function (response) {
-                return response.data;
-            }, function (error) {
-                return null;
+                for (let index = 0; index < response.data.length; index++) {
+                    const element = response.data[index];
+                    if (element.email === email) {
+                        bool = true;
+                    }
+                    
+                }
+                if (bool) {
+                    window.location.assign("aluno.html");
+                }
+                else{
+                    window.location.assign("firstaccess.html");
+                }
             });
     };
-
-    $scope.verifyAcess = async function() {
-        if($scope.verifyEmailCCC($scope.gmail.email)) {
-            var alunoRecovered = $scope.verifyFirstAcess($scope.gmail.email);
-            if(alunoRecovered === null) {
-                window.location.assign("firstaccess.html");
-            } else {
-                $scope.aluno = alunoRecovered;
-                console.log($scope.aluno);
-                window.location.assign("aluno.html");
-            }
-        } else {
-            window.alert("Você deve utilizar uma email do curso de Ciências da Computação para logar!")
-        }
-    };
-
 
     $scope.onGoogleLogin = function() {
         console.log('inicio do google api');
@@ -57,7 +49,12 @@ myApp.controller('myController', ['$scope', '$http', function($scope, $http) {
                         $scope.$apply(function() {
                             $scope.gmail.username = resp.displayName;
                             $scope.gmail.email = resp.emails[0].value;
-                            $scope.verifyAcess();
+                            if (resp.emails[0].value === "joao.arthur@computacao.ufcg.edu.br") {
+                                window.location.assign("cadastroDisciplina.html");
+                            }else{
+                                $scope.verifyFirstAcess(resp.emails[0].value);
+                            }
+                            
                         });
                     });
                 }
