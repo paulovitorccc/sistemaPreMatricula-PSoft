@@ -8,7 +8,6 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http, 
     $scope.getRequest = function(){
         $http.get("http://analytics.ufcg.edu.br/pre/ciencia_da_computacao_i_cg/disciplinas")
         .then(function(response){
-            $scope.disciplinas = response.data;
             for (let index = 0; index < response.data.length; index++) {
                 const element = response.data[index];
                     $scope.disciplinas[index] = element;
@@ -18,19 +17,22 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http, 
             
         });
     }
+    
     $scope.cadastrarDisc = function(array){
         var obj = {};
         obj.matricula = $scope.matricula;
-        obj.disciplinas = array;
+        obj.lista = array;
+    
+
+
 
         $http({
-            url: 'http://192.168.1.190:8080/prematricula/alunos/' + obj.matricula,
+            url: 'http://localhost:8080/prematricula/alunos/' + obj.matricula,
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            data: { 
-            "codigo_disciplina": obj.matricula,
-            "disciplina": obj.disciplinas,
-                }
+            data: {
+                "disciplinas": obj.lista
+            }
                
            
         })
@@ -40,8 +42,36 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http, 
         function(response) { // optional
                 window.alert('Deu ruim');
         });
-      
-      }
+              
+}
+    
+   $scope.validate  = function (){
+   var remember = document.getElementById('remember');
+   if (remember.checked){
+   alert("OK") ;
+   }else{
+   alert("Você tem que escolher pelo menos 1 disciplina")
+   }
+   }
+   
+   
+        $scope.getValue = function () {
+       var checks = document.getElementsByClassName("disc");
+       var disciplinas = [];
+       for(i=0; i < 5; i++){
+           if (checks[i].checked === true) {
+                disciplinas[i] = checks[i].value;
+           }
+       }
+       return (disciplinas);
+
+
+    }  
+
+
+  
+
+
 
 
 
