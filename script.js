@@ -49,8 +49,8 @@ myApp.controller('myController', ['$scope', '$http', function($scope, $http, Sco
                         $scope.$apply(function() {
                             $scope.gmail.username = resp.displayName;
                             $scope.gmail.email = resp.emails[0].value;
-                            if (resp.emails[0].value === "joao.arthur@computacao.ufcg.edu.br") {
-                                window.location.assign("cadastroDisciplina.html");
+                            if (resp.emails[0].value === "pedro.wanderley@ccc.ufcg.edu.br") {
+                                window.location.assign("coordenador.html");
                             }else{
                                 $scope.verifyFirstAcess(resp.emails[0].value);
                             }

@@ -23,7 +23,7 @@ myApp.controller('accessController', ['$scope', '$http', function($scope, $http)
                 window.alert('Cadastro Realizado');
                 window.location.assign('login.html');
         }, 
-        function(response) { // optional
+        function(response) { 
                 window.alert('Deu ruim');
         });
       
