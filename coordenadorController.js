@@ -9,13 +9,13 @@ myApp.controller('cooController', ['$scope', '$http', function($scope, $http) {
         var creditos = document.getElementById("creditos").value;
         var carga = document.getElementById("carga").value;
         var obj = {};
-        obj.semestre = null;
-        obj.pos_requisitos = [];
+        obj.semestre = "1";
+        obj.pos_requisitos = null;
         obj.nome = nome;
         obj.creditos = creditos;
-        obj.tipo = "";
-        obj.pre_requisitos = [];
-        obj.codigo_departamento = null;
+        obj.tipo = "Complementar";
+        obj.pre_requisitos = null;
+        obj.codigo_departamento = '14110000.0';
         obj.codigo = codigo;
         obj.carga = carga;
         $scope.enviarMsg([obj]);
@@ -24,12 +24,17 @@ myApp.controller('cooController', ['$scope', '$http', function($scope, $http) {
         $http({
             url: 'http://localhost:8080/prematricula/disciplinas',
             method: "POST",
-            data: {semestre:info.semestre , pos_requisitos: info.pos_requisitos,
-                 disciplina: info.nome, 
-            creditos: info.creditos, tipo: info.tipo, pre_requisitos: info.pre_requisitos,
-             codigo_departamento: info.codigo_departamento,
-              codigo_disciplina: info.codigo,
-               horas: info.carga}
+            data:JSON.stringify({ "codigo_disciplina": info.codigo,
+            "disciplina": info.nome,
+            "semestre": info.semestre,
+            "pos_Requisitos": info.pos_requisitos,
+            "creditos": info.creditos,
+            "tipo": info.tipo,
+            "pre_Requisitos": info.pre_requisitos,
+            "codigo_departamento": info.codigo_departamento,
+            "horas": info.carga
+                })
+               
            
         })
         .then(function(response) {
@@ -40,6 +45,7 @@ myApp.controller('cooController', ['$scope', '$http', function($scope, $http) {
         });
       
       }
+      
   
         
 }]);
