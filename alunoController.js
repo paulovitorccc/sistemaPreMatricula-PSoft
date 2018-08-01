@@ -1,6 +1,6 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller('alunoController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('alunoController', ['$scope', '$http', function($scope, $http, Scope) {
   
     $scope.disciplinas = []; 
     $scope.sendPreMatricula = [];
@@ -15,32 +15,34 @@ myApp.controller('alunoController', ['$scope', '$http', function($scope, $http) 
                 
                 
             };
-            /*
-            $scope.imprimeDisc();
-            */
+            
         });
     }
-    /*
-    $scope.imprimeDisc = function(){
-        for (let index = 0; index < $scope.disciplinas.length; index++) {
-            const element = $scope.disciplinas[index];
-            $scope.disciplinaFormat[index] = element.semestre + " " + element.disciplina + " " + element.tipo + " " + element.creditos;
-        }
+    $scope.cadastrarDisc = function(array){
+        var obj = {};
+        obj.matricula = $scope.matricula;
+        obj.disciplinas = array;
 
-    }
-    */
-    /*
-    $scope.postRequest = function() {
         $http({
-            url: '...',
+            url: 'http://localhost:8080/prematricula/alunos/' + obj.matricula,
             method: "POST",
-            data: { 'user' : $scope.sendPreMatricula }
+            headers: {'Content-Type': 'application/json'},
+            data: { 
+            "codigo_disciplina": obj.matricula,
+            "disciplina": obj.disciplinas,
+                }
+               
+           
         })
         .then(function(response) {
-                
+                window.alert('Pre Matrícula Realizada');
+        }, 
+        function(response) { // optional
+                window.alert('Deu ruim');
         });
-    }
-   */
+      
+      }
+
 
 
    

@@ -1,6 +1,6 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller('myController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('myController', ['$scope', '$http', function($scope, $http, Scope) {
     $scope.gmail = {
         username: "",
         email: ""
