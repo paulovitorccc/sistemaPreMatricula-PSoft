@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Página do Aluno</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="alunoController.js" type="text/javascript"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="alunoStyle.css">
+</head>
+<body id="body" ng-app="myApp" ng-controller="alunoController">
+  <div class="section-content">
+    <h1 class="section-header"> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Sistema de Pré Matrícula</span></h1>
+  </div>
+  <div>
+    <input type="button" ng-click="getRequest()" value="Realizar Matrícula"/>
+  </div>
+  
+  
+  <div ng-repeat="disciplina in disciplinas track by $index">
+    
+        <input id="remember" type="checkbox" class="disc" value="{{disciplina}}" >{{disciplina}}<br>
+       
+   </div>
+   <input class="btn" type="submit" value="Submit" onclick="validate();getValue();">
+   
+   
+   <script type=text/javascript>
+   function validate(){
+   var remember = document.getElementById('remember');
+   if (remember.checked){
+   alert("OK") ;
+   }else{
+   alert("Você tem que escolher pelo menos 1 disciplina")
+   }
+   }
+   </script>
+   
+   <script>
+       function getValue() {
+       var checks = document.getElementsByClassName("disc");
+       var str = "";
+       for(i=0; i < 5; i++){
+           if (checks[i].checked === true) {
+               str += checks[i].value + " ";
+           }
+       }
+       alert(str);
+    }  
+   </script>
+
+</body>
+</html>
